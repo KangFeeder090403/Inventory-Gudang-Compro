@@ -1,0 +1,167 @@
+/* ==============================
+   Global Styles
+============================== */
+body {
+  font-family: Arial, sans-serif;
+}
+
+p {
+  font-size: 15px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ==============================
+   Horizontal Rules
+============================== */
+hr.star-light {
+  margin: 10px auto 30px;
+  max-width: 1350px;
+  border: none;
+  border-top: 5px solid #000;
+}
+
+hr.star-primary {
+  margin: 10px auto 30px;
+  max-width: 250px;
+  border: none;
+  border-top: 5px solid #000;
+}
+
+/* ==============================
+   Wrapper & Page Layout
+============================== */
+#wrapper {
+  width: 100%;
+}
+
+#page-wrapper {
+  min-height: 568px;
+  padding: 0 15px;
+  background-color: #e6e7e8;
+}
+
+@media (min-width: 768px) {
+  #page-wrapper {
+    position: inherit;
+    margin: 0 0 0 250px;
+    padding: 0 30px;
+    border-left: 1px solid #2859a2;
+  }
+}
+
+/* ==============================
+   Navbar
+============================== */
+.navbar {
+  background-color: #bdbfc1;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.navbar-top-links {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.navbar-top-links li {
+  display: inline-block;
+}
+
+.navbar-top-links li:last-child {
+  margin-right: 15px;
+}
+
+.navbar-top-links li a {
+  display: block;
+  padding: 15px;
+  min-height: 50px;
+}
+
+/* ==============================
+   Sidebar
+============================== */
+.sidebar {
+  background-color: #e6e7e8;
+}
+
+.sidebar .sidebar-nav.navbar-collapse {
+  padding: 0;
+}
+
+.sidebar ul li {
+  border-bottom: 1px solid #a9abae;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 12px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Efek Hover Sidebar Menu */
+.sidebar ul li a:hover {
+  background-color: #007bff;
+  color: #fff;
+  padding-left: 25px; /* geser halus ke kanan */
+  box-shadow: inset 5px 0 0 #2859a2; /* garis highlight di kiri */
+}
+
+.sidebar ul li a.active {
+  background-color: #ff0000;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    position: absolute;
+    z-index: 1;
+    width: 250px;
+    margin-top: 51px;
+  }
+}
+
+/* ==============================
+   Dashboard Panels
+============================== */
+.panel-dashboard {
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.panel-dashboard .panel-body {
+  min-height: 100px;
+  padding: 10px;
+}
+
+.panel-dashboard i {
+  font-size: 35px;
+  color: #444;
+}
+
+.panel-dashboard h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.panel-dashboard .panel-footer {
+  padding: 6px;
+  font-size: 13px;
+  background-color: #f8f8f8;
+  border-top: 1px solid #ddd;
+}
+
+.panel-dashboard .panel-footer a {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+}

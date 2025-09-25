@@ -1,0 +1,10 @@
+
+ADMIN -> -Data Admin
+		 -Data Rak
+		 -Data Supplier
+		 -Customer
+		 -Data Barang
+		 -Data Barang Keluar
+
+PETUGAS ->-Data Barang Masuk
+		  -Data Ajuan
