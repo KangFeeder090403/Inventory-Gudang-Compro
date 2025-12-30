@@ -1,0 +1,298 @@
+/* Atur ukuran halaman A4 landscape */
+@page {
+    size: A4 landscape;
+    margin: 10mm 8mm;
+}
+
+/* General print styling */
+body {
+    font-size: 10px;
+    color: #000;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    background: white;
+}
+
+/* Header laporan dengan styling */
+.print-header {
+    display: none;
+}
+
+@media print {
+    /* Sembunyikan elemen yang tidak perlu */
+    .navbar, .sidebar, #side-menu, 
+    h1.page-header, .navbar-header, .navbar-top-links,
+    .navbar-collapse, button, .btn, .pagination, 
+    .modal, form, input[type="text"], input[type="search"],
+    a[href*="hapus"], a[href*="ubah"], a[href*="edit"] {
+        display: none !important;
+    }
+    
+    /* PENTING: Paksa thead muncul */
+    table thead {
+        display: table-header-group !important;
+        visibility: visible !important;
+    }
+    
+    table thead tr {
+        display: table-row !important;
+        visibility: visible !important;
+    }
+    
+    table thead tr th {
+        display: table-cell !important;
+        visibility: visible !important;
+    }
+    
+    .print-header {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: block;
+        margin-bottom: 15px;
+        padding: 15px 20px;
+        background: white;
+        border-bottom: 3px solid #2c3e50;
+        text-align: center;
+        z-index: 1000;
+    }
+    
+    .print-header-content {
+        display: block;
+        text-align: center;
+        position: relative;
+    }
+    
+    .print-header-left {
+        margin: 0 auto;
+    }
+    
+    .print-header-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #2c3e50 !important;
+        margin: 0 0 5px 0;
+        text-align: center;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    .print-header-subtitle {
+        font-size: 14px;
+        color: #34495e;
+        margin: 5px 0 0 0;
+    }
+    
+    .print-header-icon {
+        font-size: 22px;
+        color: #3498db;
+        margin-right: 10px;
+    }
+    
+    .print-info {
+        font-size: 10px;
+        color: #7f8c8d;
+        margin-top: 5px;
+    }
+    
+    /* Supaya tabel mulai di bawah header */
+    .table-responsive {
+        position: relative;
+        top: 0;
+        overflow: visible !important;
+        padding: 0;
+        margin: 20px 0 0 0;
+    }
+}
+
+/* Supaya tabel pas di halaman */
+@media print {
+    
+    table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        font-size: 9px !important;
+        margin: 0 !important;
+        page-break-inside: auto !important;
+    }
+
+    /* Header kolom tabel - HARUS MUNCUL DAN REPEAT DI SETIAP HALAMAN */
+    table thead,
+    .table thead,
+    .table-borderless thead {
+        display: table-header-group !important;
+        background-color: #34495e !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    table thead tr,
+    .table thead tr,
+    .table-borderless thead tr {
+        display: table-row !important;
+        background-color: #34495e !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        page-break-inside: avoid !important;
+        page-break-after: avoid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    table th,
+    .table th,
+    .table-borderless th,
+    table thead th,
+    .table thead th,
+    .table-borderless thead th {
+        display: table-cell !important;
+        background-color: #34495e !important;
+        color: white !important;
+        border: 2px solid #2c3e50 !important;
+        padding: 8px 4px !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+        font-weight: bold !important;
+        font-size: 10px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        white-space: normal !important;
+        line-height: 1.3 !important;
+        page-break-inside: avoid !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    /* Hilangkan kolom Aksi saja */
+    table thead tr th:last-child,
+    table tbody tr td:last-child {
+        display: none !important;
+    }
+
+    table tbody {
+        display: table-row-group !important;
+    }
+
+    table td {
+        border: 1px solid #95a5a6 !important;
+        padding: 5px 3px !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+        font-size: 9px !important;
+        word-wrap: break-word !important;
+        line-height: 1.4 !important;
+    }
+
+    table tbody tr {
+        page-break-inside: avoid !important;
+    }
+
+    table tbody tr:nth-child(even) {
+        background-color: #ecf0f1 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    table tbody tr:nth-child(odd) {
+        background-color: #ffffff !important;
+    }
+
+    /* Hilangkan elemen yang tidak perlu saat print */
+    button, .btn, .pagination, .search,
+    form, .cari, input[type="text"], input[type="search"],
+    .modal, .navbar, .sidebar, #side-menu, .page-header,
+    h1.page-header, .navbar-header, .navbar-top-links,
+    .navbar-collapse {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* Page wrapper full width */
+    #page-wrapper {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white !important;
+        width: 100% !important;
+    }
+
+    #wrapper {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .row {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .col-lg-12 {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+}
+
+/* Rapikan judul laporan */
+h2, h3, h4 {
+    margin: 0;
+    text-align: center;
+}
+
+@media print {
+  /* Logo kanan atas - sembunyikan agar tidak menghalangi */
+  .print-logo,
+  img[src*="coba1.jpg"],
+  img[alt="Logo"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Sembunyikan tombol saat print */
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
+  /* Footer untuk setiap halaman */
+  .print-footer {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 9px;
+    color: #7f8c8d;
+    padding: 8px 0;
+    border-top: 1px solid #bdc3c7;
+    background: white;
+  }
+  
+  /* Page break control */
+  .page-break {
+    page-break-after: always;
+  }
+  
+  /* Prevent breaking inside rows */
+  tr {
+    page-break-inside: avoid;
+  }
+  
+  /* Pastikan konten tidak terpotong */
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@media screen {
+  /* Sembunyikan logo dan footer saat layar */
+  .print-logo, .print-footer {
+    display: none;
+  }
+}
